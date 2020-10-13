@@ -159,13 +159,16 @@ export class UI {
       galleryPhoto.addEventListener("click", (e) => {
         if (currentPhotoObj.orientation === "horizontal") {
           e.target.classList.toggle("max_horizontal");
-          e.target.parentElement.classList.toggle("max_horizontal");
           e.target.parentElement.parentElement.classList.toggle("not_fixed");
+          e.target.parentElement.classList.toggle("get_overlay");
         }
         if (currentPhotoObj.orientation === "vertical") {
           e.target.classList.toggle("max_vertical");
-          e.target.parentElement.classList.toggle("max_vertical");
           e.target.parentElement.parentElement.classList.toggle("not_fixed");
+          e.target.parentElement.classList.toggle("get_overlay");
+          if (e.target.parentElement.style.width === "25%")
+            e.target.parentElement.style.width = "100%";
+          else e.target.parentElement.style.width = "25%";
         }
       });
     }
